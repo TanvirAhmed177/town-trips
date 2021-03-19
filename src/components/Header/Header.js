@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../App";
 
 const Header = () => {
-  const [user, setUser] = useContext(UserContext);
+  const [user] = useContext(UserContext);
 
   return (
     <Container fluid>
