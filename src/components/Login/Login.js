@@ -132,10 +132,10 @@ const Login = () => {
       .signInWithPopup(googleProvider)
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
-        var credential = result.credential;
-        var token = credential.accessToken;
+        // var credential = result.credential;
+        // var token = credential.accessToken;
         // The signed-in user info.
-        var user = result.user;
+        // var user = result.user;
         const { displayName, photoUrl, email } = result.user;
         const signedInUser = {
           isLoggedIn: true,
@@ -148,10 +148,10 @@ const Login = () => {
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        var email = error.email;
-        var credential = error.credential;
+        // var errorCode = error.code;
+        // var errorMessage = error.message;
+        // var email = error.email;
+        // var credential = error.credential;
         // ...
       });
   };
