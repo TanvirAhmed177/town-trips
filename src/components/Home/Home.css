@@ -1,0 +1,11 @@
+.home-container {
+  background-image: url(../../images/pexels-ian-beckley-2440013.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.home-container img {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
