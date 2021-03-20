@@ -40,6 +40,14 @@ const Login = () => {
     if (isFieldValid) {
       const newUserInfo = { ...user };
       newUserInfo[e.target.name] = e.target.value;
+      newUserInfo.error = "";
+      setUser(newUserInfo);
+    }
+    if (!isFieldValid) {
+      const newUserInfo = { ...user };
+
+      newUserInfo.error = "Please Enter Valid Email and Password";
+      newUserInfo.success = false;
       setUser(newUserInfo);
     }
   };
@@ -53,15 +61,14 @@ const Login = () => {
         .createUserWithEmailAndPassword(user.email, user.password)
         .then((userCredential) => {
           // Signed in
-          var user = userCredential.user;
+          const user = userCredential.user;
 
           const newUserInfo = { ...user };
           newUserInfo.error = "";
           newUserInfo.success = true;
-          newUserInfo.isLoggedIn = true;
-
           setUser(newUserInfo);
           updateUserName(user.name);
+
           // ...
         })
         .catch((error) => {
@@ -82,7 +89,7 @@ const Login = () => {
         .signInWithEmailAndPassword(user.email, user.password)
         .then((userCredential) => {
           // Signed in
-          var user = userCredential.user;
+          const user = userCredential.user;
           console.log(user);
           const newUserInfo = { ...user };
           newUserInfo.error = "";
@@ -93,6 +100,7 @@ const Login = () => {
           // ...
         })
         .catch((error) => {
+          console.log(error.message);
           const newUserInfo = { ...user };
           newUserInfo.error = error.message;
           newUserInfo.success = false;
@@ -108,7 +116,7 @@ const Login = () => {
   // Update user profile from user data
 
   const updateUserName = (name) => {
-    var user = firebase.auth().currentUser;
+    const user = firebase.auth().currentUser;
 
     user
       .updateProfile({

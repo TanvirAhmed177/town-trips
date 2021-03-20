@@ -6,8 +6,8 @@ import transports from "../../fakeData/fakeData";
 
 const Home = () => {
   return (
-    <Container fluid className="home-container ">
-      <Row className=" justify-content-center p-5">
+    <Container fluid className="home-container">
+      <Row className="justify-content-center p-5">
         {transports.map((tr) => (
           <Transport transport={tr}></Transport>
         ))}

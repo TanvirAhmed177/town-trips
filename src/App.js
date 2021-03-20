@@ -7,6 +7,7 @@ import Home from "./components/Home/Home";
 import { createContext, useState } from "react";
 import Destination from "./components/Destination/Destination";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import NoMatch from "./components/NoMatch/NoMatch";
 export const UserContext = createContext();
 function App() {
   const [user, setUser] = useState({
@@ -36,6 +37,9 @@ function App() {
             </PrivateRoute>
             <Route exact path="/">
               <Home></Home>
+            </Route>
+            <Route path="*">
+              <NoMatch></NoMatch>
             </Route>
           </Switch>
         </Router>

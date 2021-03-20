@@ -12,48 +12,60 @@ const Destination = () => {
   console.log(selectedTransport);
   const { price, capacity, imgUrl } = selectedTransport;
   const [show, toggleShow] = useState(false);
-  const [pickPlace, setPickPlace] = useState("");
-  const [destinationPlace, setDestinationPlace] = useState("");
-  const handlePickUpChange = (e) => {
-    const place = e.target.value;
-    setPickPlace(place);
-  };
+  const [destinationPlace, setDestinationPlace] = useState({
+    From: "",
+    To: "",
+    Date: "",
+    Time: "",
+  });
+
   const handleDestinationChange = (e) => {
     const place = e.target.value;
-    setDestinationPlace(place);
+    setDestinationPlace({ ...destinationPlace, [e.target.name]: place });
   };
 
   return (
     <Container>
-      <Row>
-        <Col className="mt-5 justify-content-center col-lg-3 col-8 mx-auto  bg-light p-5 ">
+      <Row className=" justify-content-center p-5">
+        <Col className="mt-3 m-lg-2 m-sm-2 m-md-3 p-5 p-lg-3 p-sm-2 p-md-3 col-lg-3 col-12 col-sm-8 col-md-4 bg-light">
           {!show && (
             <div>
               <form action="">
-                <label htmlFor="From">Pick From</label>
+                <label htmlFor="From">Pick From:</label>
                 <input
                   type="text"
-                  name="pickUp"
-                  onChange={handlePickUpChange}
+                  name="From"
+                  onChange={handleDestinationChange}
+                  placeholder="Your Location"
                 />
                 <br />
                 <br />
 
-                <label htmlFor="From">Pick To</label>
+                <label htmlFor="To">Pick To:</label>
                 <input
                   type="text"
-                  name="destination"
+                  name="To"
                   onChange={handleDestinationChange}
+                  placeholder="Destination"
                 />
                 <br />
                 <br />
                 <label htmlFor="From">Date</label>
-                <input type="date" name="Date" />
+                <br />
+                <input
+                  type="date"
+                  name="Date"
+                  onChange={handleDestinationChange}
+                />
                 <br />
                 <br />
                 <label htmlFor="From">Time</label>
                 <br />
-                <input type="time" name="Time" />
+                <input
+                  type="time"
+                  name="Time"
+                  onChange={handleDestinationChange}
+                />
                 <br />
                 <br />
                 <Link
@@ -68,8 +80,10 @@ const Destination = () => {
           {show && (
             <div>
               <div>
-                <b>From:</b> <h2>{pickPlace}</h2>
-                <b> To:</b> <h2 className="mb-5">{destinationPlace}</h2>
+                <b>From:</b> <h2>{destinationPlace.From}</h2>
+                <b> To:</b> <h2>{destinationPlace.To}</h2>
+                <b>Date:</b> <h2>{destinationPlace.Date}</h2>
+                <b> Time:</b> <h2 className="mb-4">{destinationPlace.Time}</h2>
               </div>
               <div className="d-flex mb-3 ">
                 <img className="pr-2" height="40px" src={imgUrl} alt="" />
@@ -113,7 +127,7 @@ const Destination = () => {
             </div>
           )}
         </Col>
-        <Col className="mt-5 justify-content-center ">
+        <Col className="mt-5 m-lg-2 m-1 m-sm-2 m-md-3 p-lg-0 p-1 p-sm-2 p-md-3 col-lg-6 col-12 col-sm-8 col-md-4">
           <GoogleMap></GoogleMap>
         </Col>
       </Row>

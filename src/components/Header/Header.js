@@ -52,7 +52,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to="/login"
-                      className="text-info border border-info  pl-2 pr-2 pt-1 pb-1 text-decoration-none"
+                      className="text-info border border-info pl-2 pr-2 pt-1 pb-1 text-decoration-none"
                     >
                       Login
                     </Link>
