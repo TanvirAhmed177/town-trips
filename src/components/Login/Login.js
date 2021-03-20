@@ -18,9 +18,7 @@ const Login = () => {
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
-
   const [newUser, setNewUser] = useState(false);
-
   const [user, setUser] = useContext(UserContext);
 
   // Input value retrieval and validation by RE
@@ -66,6 +64,7 @@ const Login = () => {
           const newUserInfo = { ...user };
           newUserInfo.error = "";
           newUserInfo.success = true;
+          newUserInfo.isLoggedIn = true;
           setUser(newUserInfo);
           updateUserName(user.name);
 
