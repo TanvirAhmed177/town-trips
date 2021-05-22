@@ -5,6 +5,7 @@ import transports from "../../fakeData/fakeData";
 import { Col, Container, Row } from "react-bootstrap";
 import people from "../../images/peopleicon.png";
 import GoogleMap from "../GoogleMap/GoogleMap";
+import "./Destination.scss";
 
 // Please Enter the value in Input boxes to see Trip Details (Location,Destination,Date,Time)
 
@@ -29,37 +30,62 @@ const Destination = () => {
   return (
     <Container>
       <Row className=" justify-content-center p-5">
-        <Col className="mt-3 m-lg-2 m-sm-2 m-md-3 p-5 p-lg-3 p-sm-2 p-md-3 col-lg-3 col-12 col-sm-8 col-md-4 bg-light">
+        <Col
+          style={{
+            boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
+            borderRadius: "10px",
+          }}
+          className="mt-3 mb-5 m-lg-2 m-sm-2 m-md-3 p-5 p-lg-3 p-sm-2 p-md-3 col-lg-3 col-12 col-sm-8 col-md-4 bg-light"
+        >
           {!show && (
-            <div>
+            <div
+              style={{
+                height: "433px",
+                padding: "10px",
+              }}
+            >
               <form action="">
-                <label htmlFor="From">Pick From:</label>
                 <input
                   type="text"
                   name="From"
                   onChange={handleChange}
                   placeholder="Your Location"
+                  id="location"
+                  className="form__field"
                 />
                 <br />
                 <br />
 
-                <label htmlFor="To">Pick To:</label>
                 <input
                   type="text"
                   name="To"
                   onChange={handleChange}
                   placeholder="Destination"
+                  id="dest"
+                  className="form__field"
                 />
                 <br />
                 <br />
-                <label htmlFor="From">Date</label>
+
                 <br />
-                <input type="date" name="Date" onChange={handleChange} />
+                <input
+                  type="date"
+                  name="Date"
+                  onChange={handleChange}
+                  id="date"
+                  className="form__field"
+                />
                 <br />
                 <br />
-                <label htmlFor="From">Time</label>
+
                 <br />
-                <input type="time" name="Time" onChange={handleChange} />
+                <input
+                  type="time"
+                  name="Time"
+                  onChange={handleChange}
+                  id="time"
+                  className="form__field"
+                />
                 <br />
                 <br />
                 <Link
@@ -72,7 +98,11 @@ const Destination = () => {
             </div>
           )}
           {show && (
-            <div>
+            <div
+              style={{
+                height: "433px",
+              }}
+            >
               <div>
                 <b>From:</b> <h2>{tripDetails.From}</h2>
                 <b> To:</b> <h2>{tripDetails.To}</h2>
@@ -122,7 +152,9 @@ const Destination = () => {
           )}
         </Col>
         <Col className="mt-5 m-lg-2 m-1 m-sm-2 m-md-3 p-lg-0 p-1 p-sm-2 p-md-3 col-lg-6 col-12 col-sm-8 col-md-4">
-          <GoogleMap></GoogleMap>
+          <div>
+            <GoogleMap></GoogleMap>
+          </div>
         </Col>
       </Row>
     </Container>

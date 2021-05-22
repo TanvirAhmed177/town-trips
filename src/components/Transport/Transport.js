@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Transport.css";
 
 const Transport = (props) => {
   const { type, imgUrl } = props.transport;
@@ -16,7 +17,7 @@ const Transport = (props) => {
             style={{
               width: "18rem",
             }}
-            className="p-3"
+            className="p-3 transports"
           >
             <Card.Img variant="top" src={imgUrl} />
             <Card.Body>
