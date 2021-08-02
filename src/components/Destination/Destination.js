@@ -104,10 +104,16 @@ const Destination = () => {
               }}
             >
               <div>
-                <b>From:</b> <h2>{tripDetails.From}</h2>
-                <b> To:</b> <h2>{tripDetails.To}</h2>
-                <b>Date:</b> <h2>{tripDetails.Date}</h2>
-                <b> Time:</b> <h2 className="mb-4">{tripDetails.Time}</h2>
+                <b>From:</b>{" "}
+                <h6 style={{ color: "tomato" }}>{tripDetails.From}</h6>
+                <b> To:</b>{" "}
+                <h6 style={{ color: "tomato" }}>{tripDetails.To}</h6>
+                <b>Date:</b>{" "}
+                <h6 style={{ color: "tomato" }}>{tripDetails.Date}</h6>
+                <b> Time:</b>{" "}
+                <h6 style={{ color: "tomato" }} className="mb-4">
+                  {tripDetails.Time}
+                </h6>
               </div>
               <div className="d-flex mb-3 ">
                 <img className="pr-2" height="40px" src={imgUrl} alt="" />
